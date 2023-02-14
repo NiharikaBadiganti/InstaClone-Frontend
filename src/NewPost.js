@@ -25,10 +25,11 @@ export const NewPost = () =>
             console.log(key[0] + ',' + key[1])
         }
 
-        // await fetch("",
-        // {
-
-        // })
+        axios.post('',formData).then(res=>
+            {
+                console.log(res)
+                navigate('/ViewPost')
+            }).catch(error => console.log(error))
         
     }
     return (
