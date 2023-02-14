@@ -13,7 +13,7 @@ export const ViewPost = () =>
     {
         function findData()
         {
-            axios.get("https://instabackend-hfve.onrender.com")
+            axios.get("https://instabackend-hfve.onrender.com/postview")
             .then(res =>
                 {
                     return res.json()
