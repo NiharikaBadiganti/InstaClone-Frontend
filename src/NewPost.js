@@ -25,7 +25,7 @@ export const NewPost = () =>
             console.log(key[0] + ',' + key[1])
         }
 
-        axios.post('',formData).then(res=>
+        axios.post('https://instabackend-hfve.onrender.com',formData).then(res=>
             {
                 console.log(res)
                 navigate('/ViewPost')
