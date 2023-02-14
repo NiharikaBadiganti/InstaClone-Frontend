@@ -1,0 +1,37 @@
+.container
+{
+    display: flex;
+    height: auto;
+}
+
+.left-box
+{
+    background: transparent url('/public/images/lens-1418954.png') 0% 0% no-repeat padding-box;
+    width: 600px;
+    height: 900px;
+}
+.right-box p
+{
+    width: 351px;
+    height: 85px;
+    text-align: left;
+    font: normal normal normal 64px/85px Palatino;
+    letter-spacing: 0px;
+    color: #006238;
+    opacity: 1;
+}
+.right-box button
+{
+    width: 86px;
+    height: 39px;
+    /* UI Properties */
+    text-align: left;
+    font: normal normal normal 20px/25px Verdana;
+    letter-spacing: 0px;
+    color: #006238;
+    opacity: 1;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 3px solid #006238;
+    border-radius: 16px;
+    opacity: 1;
+}
