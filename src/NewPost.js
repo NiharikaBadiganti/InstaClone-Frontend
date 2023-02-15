@@ -30,7 +30,7 @@ export const NewPost = () =>
         //         navigate('/ViewPost')
         //     }).catch(error => console.log(error))
         
-        await fetch("https://instaclone-project-6pt0.onrender.com/viewpost", {
+        await fetch("https://instaclone-project-6pt0.onrender.com/NewPost", {
             method: "post",
             body: formData,
             redirect: "follow"
