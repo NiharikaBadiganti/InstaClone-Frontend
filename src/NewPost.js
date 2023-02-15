@@ -11,7 +11,7 @@ export const NewPost = () =>
 
     const uploadPost = (e) =>
     {
-        const navigate = useNavigate();
+        // const navigate = useNavigate();
         async function formSubmission(e)
         {
         e.preventDefault();
@@ -21,7 +21,7 @@ export const NewPost = () =>
         // formData.append("address" , address);
         // formData.append("description", description);
 
-        let dataEntered = Object.fromEntries(formData.entries());
+        // let dataEntered = Object.fromEntries(formData.entries());
 
         // for(var key of formData.entries())
         // {
@@ -40,7 +40,7 @@ export const NewPost = () =>
             redirect: "follow"
         })
     
-    navigate("/postview")
+    // navigate("/postview")
 }
     return (
             <div className="container">
