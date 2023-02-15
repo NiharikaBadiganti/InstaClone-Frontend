@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const NewPost = () =>
 {
@@ -10,19 +11,22 @@ export const NewPost = () =>
 
     const uploadPost = (e) =>
     {
-        async function form(e)
+        const navigate = useNavigate();
+        async function formSubmission(e)
         {
         e.preventDefault();
-        const formData = new FormData();
-        formData.append("imageFile",ImageFile);
-        formData.append("author",author);
-        formData.append("address" , address);
-        formData.append("description", description);
+        const formData = new FormData(e.target);
+        // formData.append("imageFile",ImageFile);
+        // formData.append("author",author);
+        // formData.append("address" , address);
+        // formData.append("description", description);
 
-        for(var key of formData.entries())
-        {
-            console.log(key[0] + ',' + key[1])
-        }
+        let dataEntered = Object.fromEntries(formData.entries());
+
+        // for(var key of formData.entries())
+        // {
+        //     console.log(key[0] + ',' + key[1])
+        // }
 
         // axios.post('https://instabackend-hfve.onrender.com/newpost',formData).then(res=>
         //     {
@@ -35,12 +39,13 @@ export const NewPost = () =>
             body: formData,
             redirect: "follow"
         })
-    }
+    
+    navigate("/postview")
 }
     return (
             <div className="container">
                 <div className="align-self-center border border-primary-subtle p-5 m-5">
-                <form>
+                <form onSubmit={formSubmission}>
                     <div className="input-group mb-3">
                         <input type="file" className="form-control" id="inputGroupFile02" value={ImageFile} onChange={(e)=> setImageFile(e.target.value)}/>
                         <label className="input-group-text" htmlFor="inputGroupFile02">Upload</label>
@@ -62,4 +67,5 @@ export const NewPost = () =>
                 </div>
             </div>
         )
+    }
 }
