@@ -12,7 +12,7 @@ export const ViewPost = () =>
     const[Indicator, setIndicators] = useState(true)
     useEffect(()=>
     {
-        fetch("https://instabackend-hfve.onrender.com/viewpost")
+        fetch("https://instaclone-project-6pt0.onrender.com/viewpost")
             .then(res =>
                 {
                     return res.json()
