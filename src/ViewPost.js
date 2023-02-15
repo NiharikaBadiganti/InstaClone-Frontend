@@ -3,8 +3,6 @@ import cam from './Images/camera.jpg';
 import insta from './Images/insta.jpeg';
 import { Link } from "react-router-dom";
 import Card from "./Card";
-import { NewPost } from "./NewPost";
-import { Route  } from "react-router-dom";
 
 export const ViewPost = () =>
 {

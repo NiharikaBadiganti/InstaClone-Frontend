@@ -1,17 +1,10 @@
+import React from "react";
 
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
-export const NewPost = () =>
+export default function NewPost()
 {
-    const [ImageFile , setImageFile] = useState('');
-    const [author , setAuthorName] = useState('');
-    const [address , setAddress ] = useState('');
-    const [description, setDescription] = useState('');
 
-    const uploadPost = (e) =>
-    {
-        // const navigate = useNavigate();
+// const navigate = useNavigate();
         async function formSubmission(e)
         {
         e.preventDefault();
@@ -68,4 +61,3 @@ export const NewPost = () =>
             </div>
         )
     }
-}
