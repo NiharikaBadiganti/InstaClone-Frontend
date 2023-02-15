@@ -12,7 +12,7 @@ export const ViewPost = () =>
     const[Indicator, setIndicators] = useState(true)
     useEffect(()=>
     {
-        fetch("https://instaclone-project-6pt0.onrender.com/viewpost")
+        fetch("https://instaclone-project-6pt0.onrender.com/allposts")
             .then(res =>
                 {
                     return res.json()
@@ -41,7 +41,7 @@ export const ViewPost = () =>
                     return (<Card key={i} pass={element}/>)
                 })}
             
-            <Route path="/newpost" element={<NewPost setIndicators={setIndicators}/>}/>
+            {/* <Route path="/newpost" element={<NewPost setIndicators={setIndicators}/>}/> */}
         </div>
         
         
