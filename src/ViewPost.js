@@ -3,17 +3,16 @@ import cam from './Images/camera.jpg';
 import insta from './Images/insta.jpeg';
 import { Link } from "react-router-dom";
 import Card from "./Card";
-import axios from "axios";
+import { NewPost } from "./NewPost";
+import { Route  } from "react-router-dom";
 
 export const ViewPost = () =>
 {
     const[state , updateState] = useState([]);
-    
+    const[Indicator, setIndicators] = useState(true)
     useEffect(()=>
     {
-        function findData()
-        {
-            axios.get("https://instabackend-hfve.onrender.com/postview")
+        fetch("https://instabackend-hfve.onrender.com/viewpost")
             .then(res =>
                 {
                     return res.json()
@@ -27,10 +26,9 @@ export const ViewPost = () =>
                 .catch(err=>{
                     console.log(err)
                     })
-                }
-                findData();
+                
 
-    },[]);
+    },[Indicator]);
     return(
         <div className="container-fluid" style={{padding: '5px'}}>
             <img src={insta} id="instaimage" alt="..."/>
@@ -38,12 +36,12 @@ export const ViewPost = () =>
             <Link to='/newpost'><img src={cam} id="camImage" alt="..."/></Link>
             <hr></hr>
         
-            <div>
                 {state.map((element,i) =>
                 {
                     return (<Card key={i} pass={element}/>)
                 })}
-            </div>
+            
+            <Route path="/newpost" element={<NewPost setIndicators={setIndicators}/>}/>
         </div>
         
         

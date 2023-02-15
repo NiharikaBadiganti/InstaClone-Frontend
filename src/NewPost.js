@@ -1,11 +1,8 @@
-import axios from "axios";
+
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 export const NewPost = () =>
 {
-    const navigate = useNavigate();
-
     const [ImageFile , setImageFile] = useState('');
     const [author , setAuthorName] = useState('');
     const [address , setAddress ] = useState('');
@@ -13,6 +10,8 @@ export const NewPost = () =>
 
     const uploadPost = (e) =>
     {
+        async function form(e)
+        {
         e.preventDefault();
         const formData = new FormData();
         formData.append("imageFile",ImageFile);
@@ -25,13 +24,19 @@ export const NewPost = () =>
             console.log(key[0] + ',' + key[1])
         }
 
-        axios.post('https://instabackend-hfve.onrender.com/newpost',formData).then(res=>
-            {
-                console.log(res)
-                navigate('/ViewPost')
-            }).catch(error => console.log(error))
+        // axios.post('https://instabackend-hfve.onrender.com/newpost',formData).then(res=>
+        //     {
+        //         console.log(res)
+        //         navigate('/ViewPost')
+        //     }).catch(error => console.log(error))
         
+        await fetch("https://instabackend-hfve.onrender.com/viewpost", {
+            method: "post",
+            body: formData,
+            redirect: "follow"
+        })
     }
+}
     return (
             <div className="container">
                 <div className="align-self-center border border-primary-subtle p-5 m-5">
