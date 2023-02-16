@@ -24,7 +24,7 @@ export default function NewPost()
                 console.log(key[0] + " ," + key[1])
             }
 
-        axios.post('https://instaclone-project-6pt0.onrender.com/newpost',formData).then(res=>
+        axios.post('https://myinsta-4r4d.onrender.com/newpost',formData).then(res=>
             {
                 console.log(res)
                 navigate('/ViewPost')
