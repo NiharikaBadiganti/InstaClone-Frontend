@@ -66,7 +66,7 @@ export default function NewPost()
                         <label htmlFor="exampleFormControlTextarea1" className="form-label">Description</label>
                         <textarea className="form-control" name="description" id="exampleFormControlTextarea1" rows="3" onChange={e=>{setDescription(e.target.value)}}></textarea>
                     </div>
-                    <button type="button" className="btn btn-primary">Post</button>
+                    <button type="button" className="btn btn-primary" onClick={NewPost}>Post</button>
                 </form>
                 </div>
             </div>
