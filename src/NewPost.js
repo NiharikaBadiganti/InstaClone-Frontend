@@ -67,7 +67,7 @@ export default function NewPost()
                         <textarea className="form-control" name="description" id="exampleFormControlTextarea1" rows="3" onChange={e=>{setDescription(e.target.value)}}></textarea>
                     </div>
                     <button type="button" className="btn btn-primary">Post</button>
-                    </form>
+                </form>
                 </div>
             </div>
         )
