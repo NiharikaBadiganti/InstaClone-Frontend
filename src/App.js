@@ -1,4 +1,4 @@
-import { NewPost } from "./NewPost";
+import NewPost from "./NewPost";
 import { ViewPost } from "./ViewPost";
 import LandingPage from "./LandingPage";
 import { BrowserRouter , Route, Routes } from 'react-router-dom';

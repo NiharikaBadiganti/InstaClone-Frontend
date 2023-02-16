@@ -1,37 +1,48 @@
-import React from "react";
-
-
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 export default function NewPost()
 {
 
-// const navigate = useNavigate();
-        async function formSubmission(e)
+    const navigate = useNavigate();
+    const[imageFile,setImage] = useState('');
+    const[Author, setAuthor] = useState('');
+    const[location, setLocation] = useState('');
+    const[description, setDescription] = useState('');
+
+        const formSubmission = (e)=>
         {
-        e.preventDefault();
-        const formData = new FormData(e.target);
-        // formData.append("imageFile",ImageFile);
-        // formData.append("author",author);
-        // formData.append("address" , address);
-        // formData.append("description", description);
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            formData.append("imageFile",imageFile);
+            formData.append("Author",Author);
+            formData.append("location",location);
+            formData.append("description",description);
 
-        // let dataEntered = Object.fromEntries(formData.entries());
+            for(var key of formData.entries())
+            {
+                console.log(key[0] + " ," + key[1])
+            }
 
-        // for(var key of formData.entries())
-        // {
-        //     console.log(key[0] + ',' + key[1])
-        // }
-
-        // axios.post('https://instabackend-hfve.onrender.com/newpost',formData).then(res=>
-        //     {
-        //         console.log(res)
-        //         navigate('/ViewPost')
-        //     }).catch(error => console.log(error))
+        axios.post('https://instaclone-project-6pt0.onrender.com/newpost',formData).then(res=>
+            {
+                console.log(res)
+                navigate('/ViewPost')
+            }).catch(error => console.log(error))
         
-        await fetch("https://instaclone-project-6pt0.onrender.com/postnew", {
-            method: "post",
-            body: formData,
-            redirect: "follow"
-        })
+    //     await fetch("https://instaclone-project-6pt0.onrender.com/postnew", {
+    //         method: "post",
+    //         body: formData,
+    //         redirect: "follow"
+    //     })
+    //     .then(res => 
+    //         {
+    //             return res.text();
+    //         })
+    //     .catch(err=>
+    //         {
+    //             console.log(err)
+    //         })
     
     // navigate("/postview")
 }
@@ -40,22 +51,22 @@ export default function NewPost()
                 <div className="align-self-center border border-primary-subtle p-5 m-5">
                 <form onSubmit={formSubmission}>
                     <div className="input-group mb-3">
-                        <input type="file" className="form-control" id="inputGroupFile02" value={ImageFile} onChange={(e)=> setImageFile(e.target.value)}/>
+                        <input type="file" name="ImageFile" className="form-control" id="inputGroupFile02" onChange={e=>{setImage(e.target.files[0])}}/>
                         <label className="input-group-text" htmlFor="inputGroupFile02">Upload</label>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="exampleFormControlInput1" className="form-label">Author</label>
-                        <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Enter your name" value={author} onChange={(e)=> setAuthorName(e.target.value)}/>
+                        <input type="text" name="userName" className="form-control" id="exampleFormControlInput1" placeholder="Enter your name" onChange={e=>{setAuthor(e.target.value)}}/>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="exampleFormControlInput1" className="form-label">Address</label>
-                        <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Address" value={address} onChange={(e)=> setAddress(e.target.value)}/>
+                        <input type="text" name="Address" className="form-control" id="exampleFormControlInput1" placeholder="Address" onChange={e=>{setLocation(e.target.value)}}/>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="exampleFormControlTextarea1" className="form-label">Description</label>
-                        <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" value={description} onChange={(e)=> setDescription(e.target.value)}></textarea>
+                        <textarea className="form-control" name="description" id="exampleFormControlTextarea1" rows="3" onChange={e=>{setDescription(e.target.value)}}></textarea>
                     </div>
-                    <button type="button" className="btn btn-primary" onClick={uploadPost}>Post</button>
+                    <button type="button" className="btn btn-primary">Post</button>
                     </form>
                 </div>
             </div>
